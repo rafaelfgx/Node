@@ -1,0 +1,51 @@
+name: node
+services:
+    app:
+        image: app
+        container_name: app
+        restart: always
+        depends_on:
+            - mongo
+            - mongo-ui
+        build:
+            context: .
+            dockerfile: dockerfile
+        networks:
+            - network
+        ports:
+            - 3000:3000
+        environment:
+            - MONGODB_URL=mongodb://admin:password@mongo:27017/node?authSource=admin
+    mongo:
+        image: mongo
+        container_name: mongo
+        restart: always
+        networks:
+            - network
+        ports:
+            - "27017:27017"
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_ROOT_PASSWORD=password
+        volumes:
+            - ~/volumes/mongo:/data/db
+    mongo-ui:
+        image: mongo-express
+        container_name: mongo-ui
+        restart: always
+        depends_on:
+            - mongo
+        networks:
+            - network
+        ports:
+            - "27018:8081"
+        environment:
+            - ME_CONFIG_MONGODB_URL=mongodb://admin:password@mongo:27017
+            - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+            - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+            - ME_CONFIG_MONGODB_AUTH_USERNAME=admin
+            - ME_CONFIG_MONGODB_AUTH_PASSWORD=password
+            - ME_CONFIG_BASICAUTH_USERNAME=admin
+            - ME_CONFIG_BASICAUTH_PASSWORD=password
+networks:
+    network:

@@ -1,0 +1,42 @@
+{
+    "name": "node",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "restore": "npm install",
+        "check": "prettier src test --config .prettierrc --check && eslint",
+        "fix": "prettier src test --config .prettierrc --write && eslint --fix",
+        "start": "nodemon --inspect=8000 -e ts --exec node -r ts-node/register src/index.ts",
+        "test": "jest --no-cache",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "cors": "2.8.5",
+        "dotenv": "16.4.5",
+        "express": "4.19.2",
+        "helmet": "7.1.0",
+        "joi": "17.13.3",
+        "mongodb": "6.8.0",
+        "mongoose": "8.6.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "9.9.1",
+        "@testcontainers/mongodb": "10.12.0",
+        "@types/cors": "2.8.17",
+        "@types/express": "4.17.21",
+        "@types/jest": "29.5.12",
+        "@types/node": "22.5.1",
+        "@types/supertest": "6.0.2",
+        "eslint": "9.9.1",
+        "eslint-config-prettier": "9.1.0",
+        "jest": "29.7.0",
+        "nodemon": "3.1.4",
+        "prettier": "3.3.3",
+        "supertest": "7.0.0",
+        "testcontainers": "10.12.0",
+        "ts-jest": "29.2.5",
+        "ts-node": "10.9.2",
+        "typescript": "5.5.4",
+        "typescript-eslint": "8.3.0"
+    }
+}
