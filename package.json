@@ -1,0 +1,45 @@
+{
+    "name": "node",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "restore": "npm install",
+        "update": "npm install -g npm-check-updates && ncu -u",
+        "check": "prettier src test --config .prettierrc --check && eslint",
+        "fix": "prettier src test --config .prettierrc --write && eslint --fix",
+        "start": "nodemon --inspect=3000 -e ts --exec node -r ts-node/register src/main.ts",
+        "test": "jest --no-cache --coverage --detectOpenHandles",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "cors": "2.8.5",
+        "dotenv": "17.2.3",
+        "express": "5.2.1",
+        "helmet": "8.1.0",
+        "joi": "18.0.2",
+        "mongodb": "7.0.0",
+        "mongoose": "9.0.1"
+    },
+    "devDependencies": {
+        "@eslint/js": "9.39.2",
+        "@testcontainers/mongodb": "11.10.0",
+        "@types/cors": "2.8.19",
+        "@types/express": "5.0.6",
+        "@types/jest": "30.0.0",
+        "@types/node": "25.0.2",
+        "@types/supertest": "6.0.3",
+        "eslint": "9.39.2",
+        "eslint-config-prettier": "10.1.8",
+        "eslint-plugin-prettier": "5.5.4",
+        "globals": "16.5.0",
+        "jest": "30.2.0",
+        "nodemon": "3.1.11",
+        "prettier": "3.7.4",
+        "supertest": "7.1.4",
+        "testcontainers": "11.10.0",
+        "ts-jest": "29.4.6",
+        "ts-node": "10.9.2",
+        "typescript": "5.9.3",
+        "typescript-eslint": "8.50.0"
+    }
+}
