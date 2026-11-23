@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "declaration": true,
+        "esModuleInterop": true,
+        "exactOptionalPropertyTypes": true,
+        "forceConsistentCasingInFileNames": true,
+        "incremental": true,
+        "inlineSources": true,
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "noErrorTruncation": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": false,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "./dist",
+        "removeComments": true,
+        "rootDir": "./",
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "ESNext",
+        "paths": {
+            "#src/*": ["./src/*"],
+            "#test/*": ["./test/*"]
+        }
+    },
+    "exclude": ["node_modules", "dist", "coverage"]
+}
